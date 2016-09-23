@@ -18,6 +18,9 @@ android {
         versionCode 1
         versionName version
     }
+    lintOptions {
+        abortOnError false
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -29,6 +32,8 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:recyclerview-v7:24.1.1'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.github.erd:android-volley:1.0.0'
 }
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -60,6 +65,8 @@ install {
         pom {
             project {
                 packaging 'aar'
+                groupId group
+                artifactId 'ssk-base'
                 // Add your description here
                 name 'Android Commonly used class'  //项目描述
                 url siteUrl
@@ -98,5 +105,6 @@ bintray {
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
         publish = true
+        publicDownloadNumbers = true
     }
 }
