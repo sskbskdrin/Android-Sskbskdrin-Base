@@ -35,18 +35,18 @@ public class VolleyJsonRequest<T> extends VolleyRequest<String> {
 	}
 
 	/**
-	 * @param url
-	 * @param type
-	 * @param listener
+	 * @param url      请求链接
+	 * @param type     返回结果的Type类型
+	 * @param listener 回调监听
 	 */
 	public VolleyJsonRequest(Context context, String url, @NonNull Type type, IVolleyRequestListener<T> listener) {
 		this(context, url, type, listener, DEFAULT_ID);
 	}
 
 	/**
-	 * @param url
-	 * @param type
-	 * @param listener
+	 * @param url      请求链接
+	 * @param type     返回结果的Type类型
+	 * @param listener 回调监听
 	 */
 	public VolleyJsonRequest(Context context, String url, @NonNull Type type, IVolleyRequestListener<T> listener, int id) {
 		super(url, Method.POST, id);

@@ -36,8 +36,8 @@ public class SharePreferenceUtil {
 	}
 
 	/**
-	 * @param key
-	 * @param value
+	 * @param key   关键字
+	 * @param value 存储值
 	 */
 	public static void saveInt(String key, int value) {
 		if (isInit()) {
@@ -48,9 +48,8 @@ public class SharePreferenceUtil {
 	}
 
 	/**
-	 * @param key
-	 * @param defaultValue
-	 * @return
+	 * @param key          关键字
+	 * @param defaultValue 默认值
 	 */
 	public static int getInt(String key, int defaultValue) {
 		if (isInit()) {
@@ -60,7 +59,7 @@ public class SharePreferenceUtil {
 	}
 
 	/**
-	 * @param key
+	 * @param key 关键字
 	 * @return 默认0
 	 */
 	public static int getInt(String key) {
@@ -68,8 +67,8 @@ public class SharePreferenceUtil {
 	}
 
 	/**
-	 * @param key
-	 * @param value
+	 * @param key   关键字
+	 * @param value 存储值
 	 */
 	public static void saveBoolean(String key, boolean value) {
 		if (isInit()) {
@@ -80,7 +79,7 @@ public class SharePreferenceUtil {
 	}
 
 	/**
-	 * @param key
+	 * @param key 关键字
 	 * @return 默认false
 	 */
 	public static boolean getBoolean(String key) {
@@ -95,8 +94,8 @@ public class SharePreferenceUtil {
 	}
 
 	/**
-	 * @param key
-	 * @param value
+	 * @param key   关键字
+	 * @param value 存储值
 	 */
 	public static void saveString(String key, String value) {
 		if (isInit()) {
@@ -107,7 +106,7 @@ public class SharePreferenceUtil {
 	}
 
 	/**
-	 * @param key
+	 * @param key 关键字
 	 * @return 默认""
 	 */
 	public static String getString(String key) {
@@ -115,9 +114,8 @@ public class SharePreferenceUtil {
 	}
 
 	/**
-	 * @param key
-	 * @param defaultValue
-	 * @return
+	 * @param key          关键字
+	 * @param defaultValue 默认值
 	 */
 	public static String getString(String key,
 	                               String defaultValue) {
@@ -128,8 +126,8 @@ public class SharePreferenceUtil {
 	}
 
 	/**
-	 * @param key
-	 * @param value
+	 * @param key   关键字
+	 * @param value 存储值
 	 */
 	public static void saveFloat(String key, float value) {
 		if (isInit()) {
@@ -140,7 +138,7 @@ public class SharePreferenceUtil {
 	}
 
 	/**
-	 * @param key
+	 * @param key 关键字
 	 * @return 默认值0
 	 */
 	public static float getFloat(String key) {
@@ -151,8 +149,8 @@ public class SharePreferenceUtil {
 	}
 
 	/**
-	 * @param key
-	 * @param value
+	 * @param key   关键字
+	 * @param value 存储值
 	 */
 	public static void saveLong(String key, long value) {
 		if (isInit()) {
@@ -163,7 +161,7 @@ public class SharePreferenceUtil {
 	}
 
 	/**
-	 * @param key
+	 * @param key 关键字
 	 * @return 默认0
 	 */
 	public static long getLong(String key) {

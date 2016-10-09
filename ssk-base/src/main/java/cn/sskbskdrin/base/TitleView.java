@@ -83,7 +83,7 @@ public class TitleView {
 	/**
 	 * 设置标题左图标
 	 *
-	 * @param resId
+	 * @param resId 资源id
 	 */
 	public void setLeftImageResource(int resId) {
 		if (mLeftImage != null)
@@ -94,7 +94,7 @@ public class TitleView {
 	/**
 	 * 设置标题右图标
 	 *
-	 * @param resId
+	 * @param resId 资源id
 	 */
 	public void setRightImageResource(int resId) {
 		if (mRightImage1 != null)
@@ -105,7 +105,7 @@ public class TitleView {
 	/**
 	 * 设置标题右文字
 	 *
-	 * @param text
+	 * @param text 字符串
 	 */
 	public void setRightText(CharSequence text) {
 		if (mRightText != null) {
@@ -116,8 +116,6 @@ public class TitleView {
 
 	/**
 	 * 设置标题右文字是否可见
-	 *
-	 * @param visibility
 	 */
 	public void setRightTextVisible(int visibility) {
 		if (mRightText != null)
@@ -126,8 +124,6 @@ public class TitleView {
 
 	/**
 	 * 标题左图标可见性
-	 *
-	 * @param visibility
 	 */
 	public void setLeftImageVisible(int visibility) {
 		if (mLeftImage != null)
@@ -136,8 +132,6 @@ public class TitleView {
 
 	/**
 	 * 标题右图标可见性
-	 *
-	 * @param visibility
 	 */
 	public void setRightImageVisible(int visibility) {
 		if (mRightImage1 != null)

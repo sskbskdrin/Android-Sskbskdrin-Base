@@ -153,8 +153,7 @@ public class DateUtils {
 	 * covert a string object representing a date in the format "yyyy-mm-dd" to
 	 * java.sql.Date
 	 * 
-	 * @param strDate
-	 * @return
+	 * @param strDate 时间串
 	 */
 	public static java.sql.Date covertStringToSqlDate(String strDate) {
 

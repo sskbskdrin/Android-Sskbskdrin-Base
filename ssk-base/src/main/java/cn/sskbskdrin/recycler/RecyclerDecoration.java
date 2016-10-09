@@ -113,9 +113,6 @@ public class RecyclerDecoration extends RecyclerView.ItemDecoration {
 
 	/**
 	 * 获取列数
-	 *
-	 * @param parent
-	 * @return
 	 */
 	private int getSpanCount(RecyclerView parent) {
 		int spanCount = 1;

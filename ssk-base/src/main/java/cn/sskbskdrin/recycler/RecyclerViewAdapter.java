@@ -1,7 +1,6 @@
 package cn.sskbskdrin.recycler;
 
 import android.database.DataSetObserver;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.Adapter;
 import android.support.v7.widget.RecyclerView.AdapterDataObserver;
 import android.view.ViewGroup;
