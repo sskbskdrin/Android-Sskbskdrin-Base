@@ -1,0 +1,43 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="BottomWindowAnimation" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/bottom_out</item>
+    </style>
+
+    <style name="ActivityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/right_out</item>
+    </style>
+
+
+    <style name="TextBase">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextBase.heading">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/gray1</item>
+    </style>
+    <style name="TextBase.heading.1">
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="TextBase.heading.2">
+        <item name="android:textSize">22sp</item>
+    </style>
+    <style name="TextBase.heading.3">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="TextBase.body">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/gray2</item>
+    </style>
+    <style name="TextBase.body.sub">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/gray3</item>
+    </style>
+</resources>

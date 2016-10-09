@@ -50,8 +50,6 @@ public class BaseRecyclerView extends RecyclerView {
 
 	public BaseRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-
-		addItemDecoration(new RecyclerDecoration(context));
 		// 设置item动画
 		setItemAnimator(new DefaultItemAnimator());
 
@@ -81,20 +79,6 @@ public class BaseRecyclerView extends RecyclerView {
 		addOnItemTouchListener(new OnItemTouchListener() {
 			@Override
 			public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-				View childView = findChildViewUnder(e.getX(), e.getY());
-				switch (e.getAction()) {
-					case MotionEvent.ACTION_DOWN:
-						if (childView != null) {
-							childView.setPressed(true);
-						}
-						break;
-					case MotionEvent.ACTION_UP:
-					case MotionEvent.ACTION_CANCEL:
-						if (childView != null) {
-							childView.setPressed(false);
-						}
-						break;
-				}
 				return mGestureDetector.onTouchEvent(e);
 			}
 
@@ -108,24 +92,6 @@ public class BaseRecyclerView extends RecyclerView {
 				L.d(TAG, "onRequestDisallowInterceptTouchEvent action = " + disallowIntercept);
 			}
 		});
-	}
-
-	@Override
-	public void onScrollStateChanged(int state) {
-//		Log.d(TAG, "onScrollStateChanged: state=" + state);
-	}
-
-	@Override
-	public void onScrolled(int dx, int dy) {
-//		int lastPosi = ((LinearLayoutManager) getLayoutManager()).findLastCompletelyVisibleItemPosition();
-//		int firstPosi = ((LinearLayoutManager) getLayoutManager()).findFirstCompletelyVisibleItemPosition();
-//		Log.d(TAG, "onScrollStateChanged: last=" + lastPosi + " first=" + firstPosi);
-	}
-
-	@Override
-	public boolean onTouchEvent(MotionEvent e) {
-		boolean flag = super.onTouchEvent(e);
-		return flag;
 	}
 
 	public void setBaseAdapter(IBaseAdapter adapter) {

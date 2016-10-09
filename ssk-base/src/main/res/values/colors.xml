@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#FF2E94FF</color>
+    <color name="transparent">#00000000</color>
+    <color name="translucence_white">#80ffffff</color>
+    <color name="translucence_black">#80000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="red">#FFFF0000</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="gray1">#FF333333</color>
+    <color name="gray2">#FF666666</color>
+    <color name="gray3">#FF999999</color>
+    <color name="light_gray2">#ffcccccc</color>
+    <color name="light_gray1">#ffeeeeee</color>
+</resources>
