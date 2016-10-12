@@ -3,6 +3,7 @@
     <style name="BaseTheme" parent="android:Theme.Light.NoTitleBar">
         <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
         <item name="android:listSelector">@null</item>
+        <item name="title_background">@color/primary</item>
     </style>
 
     <style name="BaseDialogStyle" parent="@android:style/Theme.Dialog">

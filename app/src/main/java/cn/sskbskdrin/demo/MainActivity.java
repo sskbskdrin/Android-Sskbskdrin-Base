@@ -1,9 +1,10 @@
 package cn.sskbskdrin.demo;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-public class MainActivity extends Activity {
+import cn.sskbskdrin.base.BaseFragmentActivity;
+
+public class MainActivity extends BaseFragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

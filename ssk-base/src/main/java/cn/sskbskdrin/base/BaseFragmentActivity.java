@@ -20,7 +20,6 @@ public class BaseFragmentActivity extends FragmentActivity implements TitleView.
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		setTheme(R.style.BaseTheme);
 		TAG = getClass().getSimpleName();
 	}
 

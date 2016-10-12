@@ -1,8 +1,9 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Light">
+    <style name="AppTheme" parent="BaseTheme">
         <!-- Customize your theme here. -->
+        <item name="title_background">@color/colorAccent</item>
     </style>
 
 </resources>

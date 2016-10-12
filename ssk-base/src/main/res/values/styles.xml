@@ -12,6 +12,7 @@
         <item name="android:activityCloseExitAnimation">@anim/right_out</item>
     </style>
 
+    <attr name="title_background" format="reference|color"/>
 
     <style name="TextBase">
         <item name="android:layout_width">wrap_content</item>
