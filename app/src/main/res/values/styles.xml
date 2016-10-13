@@ -4,6 +4,7 @@
     <style name="AppTheme" parent="BaseTheme">
         <!-- Customize your theme here. -->
         <item name="title_background">@color/colorAccent</item>
+        <item name="title_height">45dp</item>
     </style>
 
 </resources>

@@ -26,5 +26,5 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile project(':ssk-base')
-    compile 'com.android.support:recyclerview-v7:24.1.1'
+    compile 'com.bigkoo:alertview:1.0.3'
 }

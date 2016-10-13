@@ -4,16 +4,19 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
     <include layout="@layout/title_layout"/>
-    <TextView style="@style/TextBase.heading"
+    <TextView style="@style/Text.heading"
               android:text="heading"/>
-    <TextView style="@style/TextBase.heading.1"
+    <TextView style="@style/Text.heading.1"
               android:text="heading1"/>
-    <TextView style="@style/TextBase.heading.2"
+    <TextView style="@style/Text.heading.2"
               android:text="heading2"/>
-    <TextView style="@style/TextBase.heading.3"
+    <TextView style="@style/Text.heading.3"
               android:text="heading3"/>
-    <TextView style="@style/TextBase.body"
+    <TextView style="@style/Text.body"
               android:text="body"/>
-    <TextView style="@style/TextBase.body.sub"
+    <TextView style="@style/Text.body.sub"
               android:text="sub body"/>
+    <cn.sskbskdrin.picker.PickerView android:id="@+id/main_picker"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="wrap_content"/>
 </LinearLayout>

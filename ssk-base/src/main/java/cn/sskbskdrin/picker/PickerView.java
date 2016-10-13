@@ -19,10 +19,10 @@ import cn.sskbskdrin.utils.DrawUtils;
 public class PickerView extends View {
 	private static final String TAG = "PickerView";
 
-	private static final int MODE = 0x01;
-	private static final int MODE_MOVE = MODE << 1;//滑动模式
-	private static final int MODE_FLING = MODE << 2;//惯性模式
-	private static final int MODE_SCROLL = MODE << 3;//调整模式
+	private static final int MODE_NONE = 0x01;
+	private static final int MODE_MOVE = MODE_NONE << 1;//滑动模式
+	private static final int MODE_FLING = MODE_NONE << 2;//惯性模式
+	private static final int MODE_SCROLL = MODE_NONE << 3;//调整模式
 	private int mFlag = 0;
 
 	private boolean isMeasure = false;
@@ -82,7 +82,7 @@ public class PickerView extends View {
 		mPaintCenterText = new Paint(Paint.ANTI_ALIAS_FLAG);
 		mPaintCenterText.setStyle(Paint.Style.FILL);
 		mPaintCenterText.setColor(0xff333333);
-		mPaintCenterText.setTextSize(TEXT_SIZE + 2);
+		mPaintCenterText.setTextSize(TEXT_SIZE + 4);
 		mScroller = new Scroller(getContext());
 	}
 
@@ -140,6 +140,12 @@ public class PickerView extends View {
 		mHeaderItem.refresh(0);
 		setCache(mHeaderItem.parent, true, (int) Math.ceil(count / 2.0f));
 		setCache(mHeaderItem.next, false, (int) Math.floor(count / 2.0f));
+	}
+
+	@Override
+	protected void onAttachedToWindow() {
+		super.onAttachedToWindow();
+		setMode(MODE_NONE);
 	}
 
 	@Override
@@ -212,14 +218,14 @@ public class PickerView extends View {
 				canvas.save();
 				canvas.clipRect(0, item.top, mViewWidth, item.bottom);
 				if (item.isContain(mTopLine, mBottomLine)) {
-					canvas.clipRect(0, mTopLine, mViewWidth, mBottomLine, Region.Op.DIFFERENCE);
+					canvas.clipRect(0, mTopLine - 1, mViewWidth, mBottomLine + 1, Region.Op.DIFFERENCE);
 				}
 				canvas.scale(1.0F, (float) item.scale);
 				DrawUtils.drawText(canvas, getItem(item.position), centerX, item.getCenterLine(), DrawUtils.AlignMode.CENTER, mPaintText);
 				canvas.restore();
 				if (item.isContain(mTopLine, mBottomLine)) {
 					canvas.save();
-					canvas.clipRect(0, mTopLine, mViewWidth, mBottomLine);
+					canvas.clipRect(0, mTopLine - 1, mViewWidth, mBottomLine + 1);
 					canvas.clipRect(0, item.top, mViewWidth, item.bottom);
 					canvas.scale(1.0F, (float) item.scale);
 					DrawUtils.drawText(canvas, getItem(item.position), centerX, item.getCenterLine(), DrawUtils.AlignMode.CENTER, mPaintCenterText);
@@ -272,6 +278,7 @@ public class PickerView extends View {
 					reviseOffset();
 				} else if (isScroll()) {
 					performSelect(mHeaderItem, false, true);
+					setMode(MODE_NONE);
 				}
 			}
 		}
@@ -475,7 +482,7 @@ public class PickerView extends View {
 		private boolean isTicker = false;
 
 
-		 Item(double r) {
+		Item(double r) {
 			refresh(r);
 		}
 
@@ -484,7 +491,7 @@ public class PickerView extends View {
 		 *
 		 * @param radian 新的弧度值
 		 */
-		 void refresh(double radian) {
+		void refresh(double radian) {
 			this.radian = radian;
 			scale = Math.cos(radian);
 			top = (float) (Math.sin(radian - STEP_HALF_RADIAN) + 1) * mRadius;
@@ -498,7 +505,7 @@ public class PickerView extends View {
 		 * @param b 下面一条线的值
 		 * @return true则有交叉
 		 */
-		 boolean isContain(float t, float b) {
+		boolean isContain(float t, float b) {
 			int bottom = (int) Math.ceil(this.bottom);
 			int top = (int) Math.floor(this.top);
 			return (t >= top && t <= bottom) || (b >= top && b <= bottom);
@@ -509,14 +516,14 @@ public class PickerView extends View {
 		 *
 		 * @return 中间位置
 		 */
-		 float getCenterLine() {
+		float getCenterLine() {
 			return (float) ((bottom + top) / 2 / scale);
 		}
 
 		/**
 		 * 是否显示出来
 		 */
-		 boolean isDraw() {
+		boolean isDraw() {
 			return Math.abs(radian) < HALF_PI;
 		}
 
@@ -525,7 +532,7 @@ public class PickerView extends View {
 		 *
 		 * @return 等于0表示没有本次移动没有经过中间线, 大于0表示向下滑动经过, 小于0表示向上滑动经过
 		 */
-		 boolean isSelect(int centerY) {
+		boolean isSelect(int centerY) {
 			boolean contain = centerY > top && centerY < bottom;
 			if (!isTicker) {
 				if (contain) {

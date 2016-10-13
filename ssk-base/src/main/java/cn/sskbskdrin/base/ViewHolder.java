@@ -2,21 +2,20 @@ package cn.sskbskdrin.base;
 
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.util.HashMap;
 
 /**
  * Created by ayke on 2016/9/1 0001.
  */
 public class ViewHolder extends RecyclerView.ViewHolder {
-	HashMap<Integer, View> map;
+	private SparseArray<View> map;
 
 	ViewHolder(View view) {
 		super(view);
-		map = new HashMap<>();
+		map = new SparseArray<>();
 	}
 
 	public void setText(int id, CharSequence text) {
@@ -44,8 +43,10 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 		view.setBackgroundDrawable(drawable);
 	}
 
+	@SuppressWarnings("unchecked")
 	public <T extends View> T getView(int id) {
-		if (!map.containsKey(id)) {
+		int index = map.indexOfKey(id);
+		if (index < 0) {
 			map.put(id, itemView.findViewById(id));
 		}
 		return (T) map.get(id);

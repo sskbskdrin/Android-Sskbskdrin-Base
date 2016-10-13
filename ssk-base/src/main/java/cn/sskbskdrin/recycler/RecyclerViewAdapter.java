@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import cn.sskbskdrin.base.IBaseAdapter;
 import cn.sskbskdrin.base.ViewHolder;
 
-public class RecyclerViewAdapter extends Adapter<ViewHolder> {
+class RecyclerViewAdapter extends Adapter<ViewHolder> {
 
 	private IBaseAdapter mBaseAdapter;
 	private DataSetObserver mDataSetObserver = new DataSetObserver() {
@@ -22,7 +22,7 @@ public class RecyclerViewAdapter extends Adapter<ViewHolder> {
 		}
 	};
 
-	public RecyclerViewAdapter(IBaseAdapter adapter) {
+	RecyclerViewAdapter(IBaseAdapter adapter) {
 		mBaseAdapter = adapter;
 	}
 

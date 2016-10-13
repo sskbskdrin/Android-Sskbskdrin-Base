@@ -16,8 +16,7 @@ if (projectPropertiesFile.exists()) {
 String projectName = properties.getProperty("project.name")
 String projectGroupId = properties.getProperty("project.groupId")
 String projectArtifactId = properties.getProperty("project.artifactId")
-String projectVersionName = properties.getProperty("project.version")
-String projectPackaging = properties.getProperty("project.packaging")
+String projectVersion = properties.getProperty("project.version")
 String projectSiteUrl = properties.getProperty("project.url.site")
 String projectGitUrl = properties.getProperty("project.url.git")
 String projectScmConnectionUrl = properties.getProperty("project.scm.connection")
@@ -31,8 +30,6 @@ String bintrayUser = properties.getProperty("bintray.user")
 String bintrayApikey = properties.getProperty("bintray.apikey")
 String gpgPass = properties.getProperty("bintray.gpg.password")
 
-String javadocName = properties.getProperty("javadoc.name")
-
 group = projectGroupId
 
 // This generates POM.xml with proper parameters
@@ -40,10 +37,10 @@ install {
     repositories.mavenInstaller {
         pom {
             project {
-                packaging projectPackaging
+                packaging 'aar'
                 groupId projectGroupId
                 artifactId projectArtifactId
-                version projectVersionName
+                version projectVersion
                 name projectName
                 description projectDescription
                 url projectSiteUrl
@@ -80,7 +77,6 @@ task javadoc(type: Javadoc) {
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
 
-// This generates javadoc.jar
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
@@ -97,9 +93,9 @@ javadoc {
         encoding "UTF-8"
         charSet 'UTF-8'
         author true
-        version projectVersionName
+        version projectVersion
         links "http://docs.oracle.com/javase/7/docs/api"
-        title javadocName
+        title projectName
     }
 }
 
@@ -116,14 +112,13 @@ bintray {
         publish = true
         publicDownloadNumbers = true
         version {
-            name = projectName
+            name = projectVersion
             desc = projectDescription
-            released = new Date()
-            vcsTag = '1.3.0'
+            vcsTag = 'master'
             gpg {
-                sign = true //Determines whether to GPG sign the files. The default is false
-                passphrase = gpgPass
-                //Optional. The passphrase for GPG signing'
+                sign = true
+                //Determines whether to GPG sign the files. The default is false
+                passphrase = gpgPass    //Optional. The passphrase for GPG signing'
             }
         }
     }

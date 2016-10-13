@@ -1,5 +1,4 @@
 <resources>
-    <!-- Base application theme. -->
     <style name="BottomWindowAnimation" parent="@android:style/Animation">
         <item name="android:windowEnterAnimation">@anim/bottom_in</item>
         <item name="android:windowExitAnimation">@anim/bottom_out</item>
@@ -12,32 +11,49 @@
         <item name="android:activityCloseExitAnimation">@anim/right_out</item>
     </style>
 
-    <attr name="title_background" format="reference|color"/>
+    <style name="BaseTheme" parent="android:Theme.Light.NoTitleBar">
+        <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
+        <item name="android:listSelector">@null</item>
+        <item name="title_background">@color/primary</item>
+        <item name="title_height">50dp</item>
+    </style>
 
-    <style name="TextBase">
+    <attr name="title_background" format="reference|color"/>
+    <attr name="title_height" format="reference|dimension"/>
+
+    <style name="BaseDialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="Text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
     </style>
-
-    <style name="TextBase.heading">
+    <style name="Text.heading">
         <item name="android:textSize">28sp</item>
         <item name="android:textColor">@color/gray1</item>
     </style>
-    <style name="TextBase.heading.1">
+    <style name="Text.heading.1">
         <item name="android:textSize">24sp</item>
     </style>
-    <style name="TextBase.heading.2">
+    <style name="Text.heading.2">
         <item name="android:textSize">22sp</item>
     </style>
-    <style name="TextBase.heading.3">
+    <style name="Text.heading.3">
         <item name="android:textSize">18sp</item>
     </style>
-    <style name="TextBase.body">
+    <style name="Text.body">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/gray2</item>
     </style>
-    <style name="TextBase.body.sub">
+    <style name="Text.body.sub">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/gray3</item>
     </style>
